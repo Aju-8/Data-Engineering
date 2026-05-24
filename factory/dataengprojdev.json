@@ -1,0 +1,15 @@
+{
+	"name": "dataengprojdev",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "32d049e2-6cdb-4984-af41-54a265d81bca",
+		"tenantId": "e88c08dd-4fa3-4c5b-abde-3eb30b0a282b"
+	}
+}
