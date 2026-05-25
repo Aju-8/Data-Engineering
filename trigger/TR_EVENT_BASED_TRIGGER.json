@@ -1,0 +1,24 @@
+{
+	"name": "TR_EVENT_BASED_TRIGGER",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_EVENT_COPY",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/2c949b38-2d7d-4ad1-9ed6-c5f9391560be/resourceGroups/dataengproje_dev/providers/Microsoft.Storage/storageAccounts/blobstoragesnowflakedev",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

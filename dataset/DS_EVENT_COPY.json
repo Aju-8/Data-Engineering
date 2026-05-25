@@ -1,0 +1,20 @@
+{
+	"name": "DS_EVENT_COPY",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_EVENT_ADLS_COPY",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Event_Trigger",
+				"fileSystem": "input"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
