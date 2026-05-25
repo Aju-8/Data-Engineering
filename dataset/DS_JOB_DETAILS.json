@@ -1,0 +1,12 @@
+{
+	"name": "DS_JOB_DETAILS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_JOB_DETAILS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
