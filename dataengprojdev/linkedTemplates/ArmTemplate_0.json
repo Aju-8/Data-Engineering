@@ -35,6 +35,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_CSV_PARQUET_CPY'"
 		},
+		"LS_EVENT_ADLS_COPY_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_EVENT_ADLS_COPY'"
+		},
+		"LS_EVENT_COPY_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_EVENT_COPY'"
+		},
 		"LS_EXCEL_CPY_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_EXCEL_CPY'"
@@ -70,14 +78,6 @@
 		"LS_SNOWFALE_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SNOWFALE'"
-		},
-		"LS_SNOW_PARQ_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_SNOW_PARQ'"
-		},
-		"LS_SQL_PARQ_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_SQL_PARQ'"
 		},
 		"LS_API_PARQUET_CPY_properties_typeProperties_url": {
 			"type": "string",
@@ -120,6 +120,10 @@
 			"defaultValue": "https://adlsdataengprojectraw.dfs.core.windows.net/"
 		},
 		"LS_CSV_PARQUET_CPY_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
+		"LS_EVENT_ADLS_COPY_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdataengprojsource.dfs.core.windows.net/"
 		},
@@ -182,10 +186,6 @@
 		"LS_SNOWFLAKE_PARQ_sasUri": {
 			"type": "secureString",
 			"metadata": "Secure string for 'sasUri' of 'LS_SNOWFLAKE_PARQ'"
-		},
-		"LS_SQL_PARQ_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://adlsdataengprojsource.dfs.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -317,6 +317,36 @@
 						"type": "SecureString",
 						"value": "[parameters('LS_CSV_PARQUET_CPY_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_EVENT_ADLS_COPY')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_EVENT_ADLS_COPY_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_EVENT_ADLS_COPY_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_EVENT_COPY')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('LS_EVENT_COPY_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -513,36 +543,6 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"sasUri": "[parameters('LS_SNOWFLAKE_PARQ_sasUri')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_SNOW_PARQ')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('LS_SNOW_PARQ_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_SQL_PARQ')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobFS",
-				"typeProperties": {
-					"url": "[parameters('LS_SQL_PARQ_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('LS_SQL_PARQ_accountKey')]"
-					}
 				}
 			},
 			"dependsOn": []

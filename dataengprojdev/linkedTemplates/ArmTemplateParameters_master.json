@@ -26,6 +26,12 @@
 		"LS_CSV_PARQUET_CPY_accountKey": {
 			"value": ""
 		},
+		"LS_EVENT_ADLS_COPY_accountKey": {
+			"value": ""
+		},
+		"LS_EVENT_COPY_connectionString": {
+			"value": ""
+		},
 		"LS_EXCEL_CPY_accountKey": {
 			"value": ""
 		},
@@ -98,6 +104,9 @@
 		"LS_CSV_PARQUET_CPY_properties_typeProperties_url": {
 			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
 		},
+		"LS_EVENT_ADLS_COPY_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
 		"LS_EXCEL_CPY_properties_typeProperties_url": {
 			"value": "https://adlsdataengprojectraw.dfs.core.windows.net/"
 		},
@@ -163,6 +172,9 @@
 		},
 		"LS_SQL_SERVER_properties_typeProperties_userName": {
 			"value": "ajith"
+		},
+		"TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope": {
+			"value": "/subscriptions/2c949b38-2d7d-4ad1-9ed6-c5f9391560be/resourceGroups/dataengproje_dev/providers/Microsoft.Storage/storageAccounts/blobstoragesnowflakedev"
 		},
 		"Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger": {
 			"value": "Tr_sample_csv"

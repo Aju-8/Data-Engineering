@@ -35,6 +35,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_CSV_PARQUET_CPY'"
 		},
+		"LS_EVENT_ADLS_COPY_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_EVENT_ADLS_COPY'"
+		},
+		"LS_EVENT_COPY_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_EVENT_COPY'"
+		},
 		"LS_EXCEL_CPY_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_EXCEL_CPY'"
@@ -131,6 +139,10 @@
 			"type": "string",
 			"defaultValue": "https://adlsdataengprojsource.dfs.core.windows.net/"
 		},
+		"LS_EVENT_ADLS_COPY_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
 		"LS_EXCEL_CPY_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdataengprojectraw.dfs.core.windows.net/"
@@ -219,6 +231,10 @@
 			"type": "string",
 			"defaultValue": "ajith"
 		},
+		"TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/2c949b38-2d7d-4ad1-9ed6-c5f9391560be/resourceGroups/dataengproje_dev/providers/Microsoft.Storage/storageAccounts/blobstoragesnowflakedev"
+		},
 		"Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger": {
 			"type": "string",
 			"defaultValue": "Tr_sample_csv"
@@ -271,6 +287,12 @@
 					"LS_CSV_PARQUET_CPY_accountKey": {
 						"value": "[parameters('LS_CSV_PARQUET_CPY_accountKey')]"
 					},
+					"LS_EVENT_ADLS_COPY_accountKey": {
+						"value": "[parameters('LS_EVENT_ADLS_COPY_accountKey')]"
+					},
+					"LS_EVENT_COPY_connectionString": {
+						"value": "[parameters('LS_EVENT_COPY_connectionString')]"
+					},
 					"LS_EXCEL_CPY_accountKey": {
 						"value": "[parameters('LS_EXCEL_CPY_accountKey')]"
 					},
@@ -297,12 +319,6 @@
 					},
 					"LS_SNOWFALE_password": {
 						"value": "[parameters('LS_SNOWFALE_password')]"
-					},
-					"LS_SNOW_PARQ_connectionString": {
-						"value": "[parameters('LS_SNOW_PARQ_connectionString')]"
-					},
-					"LS_SQL_PARQ_accountKey": {
-						"value": "[parameters('LS_SQL_PARQ_accountKey')]"
 					},
 					"LS_API_PARQUET_CPY_properties_typeProperties_url": {
 						"value": "[parameters('LS_API_PARQUET_CPY_properties_typeProperties_url')]"
@@ -336,6 +352,9 @@
 					},
 					"LS_CSV_PARQUET_CPY_properties_typeProperties_url": {
 						"value": "[parameters('LS_CSV_PARQUET_CPY_properties_typeProperties_url')]"
+					},
+					"LS_EVENT_ADLS_COPY_properties_typeProperties_url": {
+						"value": "[parameters('LS_EVENT_ADLS_COPY_properties_typeProperties_url')]"
 					},
 					"LS_EXCEL_CPY_properties_typeProperties_url": {
 						"value": "[parameters('LS_EXCEL_CPY_properties_typeProperties_url')]"
@@ -381,9 +400,6 @@
 					},
 					"LS_SNOWFLAKE_PARQ_sasUri": {
 						"value": "[parameters('LS_SNOWFLAKE_PARQ_sasUri')]"
-					},
-					"LS_SQL_PARQ_properties_typeProperties_url": {
-						"value": "[parameters('LS_SQL_PARQ_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -402,6 +418,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LS_SNOW_PARQ_connectionString": {
+						"value": "[parameters('LS_SNOW_PARQ_connectionString')]"
+					},
+					"LS_SQL_PARQ_accountKey": {
+						"value": "[parameters('LS_SQL_PARQ_accountKey')]"
+					},
+					"LS_SQL_PARQ_properties_typeProperties_url": {
+						"value": "[parameters('LS_SQL_PARQ_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -447,13 +472,36 @@
 					"LS_SQL_SERVER_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQL_SERVER_properties_typeProperties_userName')]"
 					},
+					"TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope": {
+						"value": "[parameters('TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dataengprojdev_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "dataengprojdev_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
 					"Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger": {
 						"value": "[parameters('Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger')]"
 					}
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'dataengprojdev_ArmTemplate_1')]"
+				"[resourceId('Microsoft.Resources/deployments', 'dataengprojdev_ArmTemplate_2')]"
 			]
 		}
 	]
