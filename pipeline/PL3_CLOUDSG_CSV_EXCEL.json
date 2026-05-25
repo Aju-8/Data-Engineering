@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select distinct L3_switch_type\nfrom dbo.vb_tbl_job a\njoin dbo.vb_tbl_trigger b\non a.trigger_name = b.trigger_name\nwhere b.trigger_name = '@{pipeline().parameters.Trigger}'",
+							"value": "@concat(\n'select distinct L3_switch_type\nfrom dbo.vb_tbl_job a\njoin dbo.vb_tbl_trigger b\non a.trigger_name = b.trigger_name\nwhere b.trigger_name = ''',\npipeline().parameters.Trigger,\n''''\n)",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
