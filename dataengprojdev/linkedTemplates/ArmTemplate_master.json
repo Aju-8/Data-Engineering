@@ -47,6 +47,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_GETFILE_CSV_EXCEL'"
 		},
+		"LS_JOB_DETAILS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_JOB_DETAILS'"
+		},
 		"LS_JSON_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_JSON'"
@@ -147,6 +151,18 @@
 			"type": "string",
 			"defaultValue": "sqladmin"
 		},
+		"LS_JOB_DETAILS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlserverdataengdev.database.windows.net"
+		},
+		"LS_JOB_DETAILS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sql-db-dataengproj-dev"
+		},
+		"LS_JOB_DETAILS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sqladmin"
+		},
 		"LS_JSON_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdataengprojectraw.dfs.core.windows.net/"
@@ -202,6 +218,10 @@
 		"LS_SQL_SERVER_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "ajith"
+		},
+		"Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger": {
+			"type": "string",
+			"defaultValue": "Tr_sample_csv"
 		},
 		"containerUri": {
 			"type": "string",
@@ -259,6 +279,9 @@
 					},
 					"LS_GETFILE_CSV_EXCEL_password": {
 						"value": "[parameters('LS_GETFILE_CSV_EXCEL_password')]"
+					},
+					"LS_JOB_DETAILS_password": {
+						"value": "[parameters('LS_JOB_DETAILS_password')]"
 					},
 					"LS_JSON_accountKey": {
 						"value": "[parameters('LS_JSON_accountKey')]"
@@ -329,6 +352,15 @@
 					"LS_GETFILE_CSV_EXCEL_properties_typeProperties_userName": {
 						"value": "[parameters('LS_GETFILE_CSV_EXCEL_properties_typeProperties_userName')]"
 					},
+					"LS_JOB_DETAILS_properties_typeProperties_server": {
+						"value": "[parameters('LS_JOB_DETAILS_properties_typeProperties_server')]"
+					},
+					"LS_JOB_DETAILS_properties_typeProperties_database": {
+						"value": "[parameters('LS_JOB_DETAILS_properties_typeProperties_database')]"
+					},
+					"LS_JOB_DETAILS_properties_typeProperties_userName": {
+						"value": "[parameters('LS_JOB_DETAILS_properties_typeProperties_userName')]"
+					},
 					"LS_JSON_properties_typeProperties_url": {
 						"value": "[parameters('LS_JSON_properties_typeProperties_url')]"
 					},
@@ -370,6 +402,26 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dataengprojdev_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "dataengprojdev_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"LS_SQL_password": {
 						"value": "[parameters('LS_SQL_password')]"
@@ -394,26 +446,9 @@
 					},
 					"LS_SQL_SERVER_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQL_SERVER_properties_typeProperties_userName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'dataengprojdev_ArmTemplate_0')]"
-			]
-		},
-		{
-			"name": "dataengprojdev_ArmTemplate_2",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2024-03-01",
-			"properties": {
-				"mode": "incremental",
-				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"factoryName": {
-						"value": "[parameters('factoryName')]"
+					},
+					"Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger": {
+						"value": "[parameters('Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger')]"
 					}
 				}
 			},

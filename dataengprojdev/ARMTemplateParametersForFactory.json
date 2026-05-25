@@ -35,6 +35,9 @@
 		"LS_GETFILE_CSV_EXCEL_password": {
 			"value": ""
 		},
+		"LS_JOB_DETAILS_password": {
+			"value": ""
+		},
 		"LS_JSON_accountKey": {
 			"value": ""
 		},
@@ -110,6 +113,15 @@
 		"LS_GETFILE_CSV_EXCEL_properties_typeProperties_userName": {
 			"value": "sqladmin"
 		},
+		"LS_JOB_DETAILS_properties_typeProperties_server": {
+			"value": "sqlserverdataengdev.database.windows.net"
+		},
+		"LS_JOB_DETAILS_properties_typeProperties_database": {
+			"value": "sql-db-dataengproj-dev"
+		},
+		"LS_JOB_DETAILS_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
 		"LS_JSON_properties_typeProperties_url": {
 			"value": "https://adlsdataengprojectraw.dfs.core.windows.net/"
 		},
@@ -151,6 +163,9 @@
 		},
 		"LS_SQL_SERVER_properties_typeProperties_userName": {
 			"value": "ajith"
+		},
+		"Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger": {
+			"value": "Tr_sample_csv"
 		}
 	}
 }
