@@ -1,0 +1,162 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dataengprojdev"
+		},
+		"LS_API_PARQUET_CPY_accountKey": {
+			"value": ""
+		},
+		"LS_AZURE_SQL_password": {
+			"value": ""
+		},
+		"LS_AZURE_SQL_SOURCE_password": {
+			"value": ""
+		},
+		"LS_BULK_CPY_accountKey": {
+			"value": ""
+		},
+		"LS_BULK_PARQUET_CPY_accountKey": {
+			"value": ""
+		},
+		"LS_CSV_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_CSV_PARQUET_CPY_accountKey": {
+			"value": ""
+		},
+		"LS_EXCEL_CPY_accountKey": {
+			"value": ""
+		},
+		"LS_EXCEL_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_GETFILE_CSV_EXCEL_password": {
+			"value": ""
+		},
+		"LS_JSON_accountKey": {
+			"value": ""
+		},
+		"LS_JSON_PARQUET_CPY_accountKey": {
+			"value": ""
+		},
+		"LS_SFTP_accountKey": {
+			"value": ""
+		},
+		"LS_SFTP_PARQUET_CPY_accountKey": {
+			"value": ""
+		},
+		"LS_SNOWFALE_password": {
+			"value": ""
+		},
+		"LS_SNOW_PARQ_connectionString": {
+			"value": ""
+		},
+		"LS_SQL_password": {
+			"value": ""
+		},
+		"LS_SQL_PARQ_accountKey": {
+			"value": ""
+		},
+		"LS_SQL_SERVER_password": {
+			"value": ""
+		},
+		"LS_API_PARQUET_CPY_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
+		"LS_AZURE_SQL_properties_typeProperties_server": {
+			"value": "sqlserverdataengdev.database.windows.net"
+		},
+		"LS_AZURE_SQL_properties_typeProperties_database": {
+			"value": "sql-db-dataengproj-dev"
+		},
+		"LS_AZURE_SQL_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"LS_AZURE_SQL_SOURCE_properties_typeProperties_server": {
+			"value": "sqlserverdataengdev.database.windows.net"
+		},
+		"LS_AZURE_SQL_SOURCE_properties_typeProperties_database": {
+			"value": "sql-db-dataengproj-dev"
+		},
+		"LS_AZURE_SQL_SOURCE_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"LS_BULK_CPY_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojectraw.dfs.core.windows.net/"
+		},
+		"LS_BULK_PARQUET_CPY_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
+		"LS_CSV_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojectraw.dfs.core.windows.net/"
+		},
+		"LS_CSV_PARQUET_CPY_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
+		"LS_EXCEL_CPY_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojectraw.dfs.core.windows.net/"
+		},
+		"LS_EXCEL_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
+		"LS_GETFILE_CSV_EXCEL_properties_typeProperties_server": {
+			"value": "sqlserverdataengdev.database.windows.net"
+		},
+		"LS_GETFILE_CSV_EXCEL_properties_typeProperties_database": {
+			"value": "sql-db-dataengproj-dev"
+		},
+		"LS_GETFILE_CSV_EXCEL_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"LS_JSON_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojectraw.dfs.core.windows.net/"
+		},
+		"LS_JSON_PARQUET_CPY_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
+		"LS_REST_API_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/kkhpiY/data"
+		},
+		"LS_SFTP_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojectraw.dfs.core.windows.net/"
+		},
+		"LS_SFTP_PARQUET_CPY_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
+		"LS_SNOWFALE_properties_typeProperties_database": {
+			"value": "DBAZURESNOW"
+		},
+		"LS_SNOWFLAKE_PARQ_sasUri": {
+			"value": ""
+		},
+		"LS_SQL_properties_typeProperties_server": {
+			"value": "DESKTOP-0L5A4AR"
+		},
+		"LS_SQL_properties_typeProperties_database": {
+			"value": "Dataengproject"
+		},
+		"LS_SQL_properties_typeProperties_userName": {
+			"value": "ajith"
+		},
+		"LS_SQL_PARQ_properties_typeProperties_url": {
+			"value": "https://adlsdataengprojsource.dfs.core.windows.net/"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_database": {
+			"value": "Dataengproject"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_userName": {
+			"value": "ajith"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
