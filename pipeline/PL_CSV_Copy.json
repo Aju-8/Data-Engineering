@@ -129,7 +129,7 @@
 					"storedProcedureParameters": {
 						"jobid": {
 							"value": {
-								"value": "jobid @activity('LKP_JOB_DETAILS').output.firstRow.jobid",
+								"value": "@activity('LKP_JOB_DETAILS').output.firstRow.jobid",
 								"type": "Expression"
 							},
 							"type": "Int32"
