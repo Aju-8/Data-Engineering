@@ -205,11 +205,11 @@
 		},
 		"LS_SQL_properties_typeProperties_server": {
 			"type": "string",
-			"defaultValue": "DESKTOP-0L5A4AR"
+			"defaultValue": "localhost"
 		},
 		"LS_SQL_properties_typeProperties_database": {
 			"type": "string",
-			"defaultValue": "Dataengproject"
+			"defaultValue": "sql-db-dataengproj-dev"
 		},
 		"LS_SQL_properties_typeProperties_userName": {
 			"type": "string",
@@ -225,7 +225,7 @@
 		},
 		"LS_SQL_SERVER_properties_typeProperties_database": {
 			"type": "string",
-			"defaultValue": "Dataengproject"
+			"defaultValue": "sql-db-dataengproj-dev"
 		},
 		"LS_SQL_SERVER_properties_typeProperties_userName": {
 			"type": "string",
