@@ -1013,7 +1013,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy data1",
+						"name": "EVENT_SNOWFLAKE_BASED_COPY",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -2109,7 +2109,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "Event_Trigger",
+						"folderPath": {
+							"value": "@concat(\n    'event_trigger/',\n    formatDateTime(utcNow(),'yyyy'),\n    '/',\n    formatDateTime(utcNow(),'MM'),\n    '/',\n    formatDateTime(utcNow(),'dd'),\n    '/'\n)",
+							"type": "Expression"
+						},
 						"fileSystem": "input"
 					},
 					"compressionCodec": "snappy"
@@ -3294,7 +3297,8 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/input/blobs/",
+					"blobPathBeginsWith": "/input/blobs/snowflake/",
+					"blobPathEndsWith": ".parquet",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope')]",
 					"events": [
