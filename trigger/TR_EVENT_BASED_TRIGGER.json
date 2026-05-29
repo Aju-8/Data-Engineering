@@ -13,7 +13,8 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/input/blobs/",
+			"blobPathBeginsWith": "/input/blobs/snowflake/",
+			"blobPathEndsWith": ".parquet",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/2c949b38-2d7d-4ad1-9ed6-c5f9391560be/resourceGroups/dataengproje_dev/providers/Microsoft.Storage/storageAccounts/blobstoragesnowflakedev",
 			"events": [
