@@ -2109,10 +2109,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": {
-							"value": "@concat(\n    'event_trigger/',\n    formatDateTime(utcNow(),'yyyy'),\n    '/',\n    formatDateTime(utcNow(),'MM'),\n    '/',\n    formatDateTime(utcNow(),'dd'),\n    '/'\n)",
-							"type": "Expression"
-						},
+						"folderPath": "Event_trigger",
 						"fileSystem": "input"
 					},
 					"compressionCodec": "snappy"
