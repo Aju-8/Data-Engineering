@@ -236,7 +236,7 @@
 					"storedProcedureParameters": {
 						"error": {
 							"value": {
-								"value": "@activity('COPY_DATA').error.message\r\n",
+								"value": "@activity('COPY_DATA').error.message\n",
 								"type": "Expression"
 							},
 							"type": "String"
