@@ -43,6 +43,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"on": {
+						"value": "@activity('LKP_FILETYPE_CSV_EXCEL').output.firstRow.L4_switch_type",
+						"type": "Expression"
+					},
 					"cases": [
 						{
 							"value": "csv",
