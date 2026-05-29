@@ -1,9 +1,9 @@
 {
-	"name": "PL3_CLOUDSG_CSV_EXCEL",
+	"name": "PL4_FILETYPE_CSV_EXCEL",
 	"properties": {
 		"activities": [
 			{
-				"name": "LKP_SRC_FILES",
+				"name": "LKP_FILETYPE_CSV_EXCEL",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -18,24 +18,24 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "@concat(\n'select distinct L3_switch_type\nfrom dbo.vb_tbl_job a\njoin dbo.vb_tbl_trigger b\non a.trigger_id = b.trigger_id\nwhere b.trigger_name = ''',\npipeline().parameters.Trigger,\n''''\n)",
+							"value": "@concat(\n'select distinct L4_switch_type\nfrom dbo.vb_tbl_job a\njoin dbo.vb_tbl_trigger b\non a.trigger_id = b.trigger_id\nwhere b.trigger_name = ''',\npipeline().parameters.Trigger,\n''''\n)",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_AZURE_SOURCE_SQL",
+						"referenceName": "DS_AZURE_SQL_FILETYPE",
 						"type": "DatasetReference"
 					}
 				}
 			},
 			{
-				"name": "SWT_SRC_LO_CSV_EXCEL",
+				"name": "Switch1",
 				"type": "Switch",
 				"dependsOn": [
 					{
-						"activity": "LKP_SRC_FILES",
+						"activity": "LKP_FILETYPE_CSV_EXCEL",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -43,16 +43,12 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"on": {
-						"value": "@activity('LKP_SRC_FILES').output.firstRow.L3_switch_type",
-						"type": "Expression"
-					},
 					"cases": [
 						{
-							"value": "Azure",
+							"value": "csv",
 							"activities": [
 								{
-									"name": "PL_FILETYPE",
+									"name": "PL_CSV",
 									"type": "ExecutePipeline",
 									"dependsOn": [],
 									"policy": {
@@ -61,7 +57,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"pipeline": {
-											"referenceName": "PL4_FILETYPE_CSV_EXCEL",
+											"referenceName": "PL_CSV_Copy",
 											"type": "PipelineReference"
 										},
 										"waitOnCompletion": true,
@@ -76,29 +72,28 @@
 							]
 						},
 						{
-							"value": "AWS",
+							"value": "excel",
 							"activities": [
 								{
-									"name": "Wait1",
-									"type": "Wait",
+									"name": "PL_EXCEL",
+									"type": "ExecutePipeline",
 									"dependsOn": [],
+									"policy": {
+										"secureInput": false
+									},
 									"userProperties": [],
 									"typeProperties": {
-										"waitTimeInSeconds": 1
-									}
-								}
-							]
-						},
-						{
-							"value": "GCP",
-							"activities": [
-								{
-									"name": "Wait2",
-									"type": "Wait",
-									"dependsOn": [],
-									"userProperties": [],
-									"typeProperties": {
-										"waitTimeInSeconds": 1
+										"pipeline": {
+											"referenceName": "PL_EXCEL_CPY",
+											"type": "PipelineReference"
+										},
+										"waitOnCompletion": true,
+										"parameters": {
+											"Trigger": {
+												"value": "@pipeline().parameters.Trigger",
+												"type": "Expression"
+											}
+										}
 									}
 								}
 							]
@@ -112,13 +107,6 @@
 				"type": "string"
 			}
 		},
-		"variables": {
-			"Mapping": {
-				"type": "String"
-			}
-		},
-		"annotations": [],
-		"lastPublishTime": "2026-05-24T06:52:05Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+		"annotations": []
+	}
 }
