@@ -55,6 +55,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_GETFILE_CSV_EXCEL'"
 		},
+		"LS_INCREMENTAL_LOAD_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_INCREMENTAL_LOAD'"
+		},
 		"LS_JOB_DETAILS_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_JOB_DETAILS'"
@@ -302,6 +306,9 @@
 					"LS_GETFILE_CSV_EXCEL_password": {
 						"value": "[parameters('LS_GETFILE_CSV_EXCEL_password')]"
 					},
+					"LS_INCREMENTAL_LOAD_connectionString": {
+						"value": "[parameters('LS_INCREMENTAL_LOAD_connectionString')]"
+					},
 					"LS_JOB_DETAILS_password": {
 						"value": "[parameters('LS_JOB_DETAILS_password')]"
 					},
@@ -397,9 +404,6 @@
 					},
 					"LS_SNOWFALE_properties_typeProperties_database": {
 						"value": "[parameters('LS_SNOWFALE_properties_typeProperties_database')]"
-					},
-					"LS_SNOWFLAKE_PARQ_sasUri": {
-						"value": "[parameters('LS_SNOWFLAKE_PARQ_sasUri')]"
 					}
 				}
 			},
@@ -424,6 +428,9 @@
 					},
 					"LS_SQL_PARQ_accountKey": {
 						"value": "[parameters('LS_SQL_PARQ_accountKey')]"
+					},
+					"LS_SNOWFLAKE_PARQ_sasUri": {
+						"value": "[parameters('LS_SNOWFLAKE_PARQ_sasUri')]"
 					},
 					"LS_SQL_PARQ_properties_typeProperties_url": {
 						"value": "[parameters('LS_SQL_PARQ_properties_typeProperties_url')]"
@@ -471,9 +478,6 @@
 					},
 					"LS_SQL_SERVER_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQL_SERVER_properties_typeProperties_userName')]"
-					},
-					"TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope": {
-						"value": "[parameters('TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope')]"
 					}
 				}
 			},
@@ -494,6 +498,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope": {
+						"value": "[parameters('TR_EVENT_BASED_TRIGGER_properties_typeProperties_scope')]"
 					},
 					"Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger": {
 						"value": "[parameters('Tr_sample_csv_properties_PL_MASTER_PIPELINE_parameters_Trigger')]"

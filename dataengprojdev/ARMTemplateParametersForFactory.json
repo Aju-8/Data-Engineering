@@ -41,6 +41,9 @@
 		"LS_GETFILE_CSV_EXCEL_password": {
 			"value": ""
 		},
+		"LS_INCREMENTAL_LOAD_connectionString": {
+			"value": ""
+		},
 		"LS_JOB_DETAILS_password": {
 			"value": ""
 		},
