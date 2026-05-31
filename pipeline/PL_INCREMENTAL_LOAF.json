@@ -53,7 +53,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select MAX(LastModifytime)\nfrom data_source_table",
+							"value": "SELECT MAX(LastModifytime) AS NewWatermarkValue\nFROM data_source_table",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -88,7 +88,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select *\nfrom data_source_table\nwhere LastModifytime > OldWatermark\nand LastModifytime <= NewWatermark",
+							"value": "@concat(\n'select * from data_source_table where LastModifytime > ''',\nactivity('LKP_OLD_WATERMARK').output.firstRow.WatermarkValue,\n''' and LastModifytime <= ''',\nactivity('LKP_NEW_WATERMARK').output.firstRow.NewWatermarkvalue,\n''''\n)",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
