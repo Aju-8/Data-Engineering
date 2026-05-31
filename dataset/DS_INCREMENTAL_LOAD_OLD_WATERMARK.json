@@ -1,0 +1,12 @@
+{
+	"name": "DS_INCREMENTAL_LOAD_OLD_WATERMARK",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AZURE_SQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
